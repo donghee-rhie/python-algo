@@ -1,10 +1,10 @@
 # 5. Longest Palindromic Substring
 
-1. 과제개요
+**1. 과제개요**
 
 - 주어진 인풋 스트링에 대해서, 가장 길이가 긴 palindromic substring을 리턴한다.
 
-2. 초반 풀이
+**2. 초반 풀이**
 
 - Palindrome 판별하는 함수 만든 뒤 가장 긴 길이부터 탐색하기 시작하는 방식..~~사실 굳이 함수가 필요없긴 하다..~~
 - 7316 ms...
@@ -24,7 +24,7 @@ class Solution:
                     return s[j:j+i]
 ```
 
-3. 교재 및 모범풀이
+**3. 교재 및 모범풀이**
 
 - 인풋 string 앞에서부터 차례대로
 - 홀수, 짝수인 경우 나눠서 (p1, p2) get_palindrome 함수로 palindrome 구함
@@ -49,7 +49,7 @@ class Solution:
         return s[l+1:r]
 ```
 
-4. Takeaway
+**4. Takeaway**
 
 - 탐색하는 부분의 세련된 방식...
 - max값에 key 적용하고 lambda로 기준 지정해주는 방식
