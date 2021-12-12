@@ -1,2 +1,3 @@
 # python-algo
-repository for training python algos
+
+repository for training python algos!
