@@ -51,4 +51,5 @@ class Solution:
 
 4. Takeaway
 
-- ㅡㅁ
+- 탐색하는 부분의 세련된 방식...
+- max값에 key 적용하고 lambda로 기준 지정해주는 방식
