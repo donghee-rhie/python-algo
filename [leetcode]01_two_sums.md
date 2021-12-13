@@ -12,14 +12,11 @@
 
 ```python
 class Solution:
-    def twoSum(self, nums, target):
-        values = {}
-        for i, num in enumerate(nums):
-            remaining = target - num
-            if remaining in values:
-                return [i, values[remaining]]
-            else:
-                values[num] = i
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
 ```
 
 **2-1. 다시 풀어본 풀이..**
