@@ -23,6 +23,7 @@ class Solution:
 
 - 리스트 element별로 하나씩 순회하면서 target과의 차이를 구한 뒤, 그 차이가 다른 원소중에 있는지 탐색하는 방식
 - loop이 두개 도는 구조에서 한 번만 돌면 되는 구조로 변경..
+- loop이 두개 돌지만 어쨌거나 loop안에서 in 으로 탐색하는건 마찬가지라서 시간복잡도는 위와 유사하지만 in 연산이 훨씬 가볍기 때문에 시간이 조금 걸림
 - 832ms
 
 ```python
@@ -38,8 +39,26 @@ class Solution:
 **3. 교재 및 모범풀이**
 
 - 전체적인 접근방식은 위와 동일함
-- 다만 딕셔너리를 활용한 데이터 저장 및 호출 활용..
+- 다만 loop 안에서 in으로 탐색하는 부분을 없애고 딕셔너리를 활용해 해시테이블을 만들어서 조회 속도를 빠르게 만든다.
+- 해시테이블 탐색의 복잡도는 대략 O(1) 수준에서 가능하므로 시간이 훨씬 단축된다.
 - 56 ms..
+
+- dict 다 만든 뒤 찾는 버전
+
+```python
+class Solution:
+    def twoSum(self, nums, target):
+        values = {}
+        for i, num in enumerate(nums):
+            values[num] = i
+
+        for i, num in enumerate(nums):
+            remaining = target - num
+            if remaining in values and i != values[remaining]:
+                return [i, values[remaining]]
+```
+
+- dict 다 안 만들고 처리하는 버전. 조금더 효율적이지만 탐색시간은 비슷..
 
 ```python
 class Solution:
@@ -56,4 +75,4 @@ class Solution:
 **4. Takeaway**
 
 - brutal force 외 다른 방법 탐색해보기..
-- 딕셔너리 활용한 key/value 저장해두는 방식 적극적으로 활용하기
+- 딕셔너리 활용한 key/value 저장해두는 방식 적극적으로 활용하기.
